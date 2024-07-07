@@ -8,7 +8,7 @@ const bookrouter = Router()
 bookrouter.route("/books").post(bookController)
 
 // route to get all books form db
-bookrouter.get("/books", async(req, res) => {
+bookrouter.get("/books/details", async(req, res) => {
     try {
         const books = await Book.find({});
         return res
@@ -45,7 +45,7 @@ bookrouter.get("/books/:id", async(req, res) => {
   })
   
 // route for update a book
-bookrouter.put("/books/:id", async(req, res) => {
+bookrouter.put("/books/edit/:id", async(req, res) => {
     try {
       if( !req.body.title ) {
         return res
@@ -75,7 +75,7 @@ bookrouter.put("/books/:id", async(req, res) => {
   })
     
 // delete a book
-bookrouter.delete("/books/:id", async(req, res) => {
+bookrouter.delete("/books/delete/:id", async(req, res) => {
     try {
       const { id } = req.params;
       const deleteBook = await Book.findByIdAndDelete(id);

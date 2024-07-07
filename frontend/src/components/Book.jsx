@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import ShowBooks from './ShowBooks.jsx'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
 
 
 function Books() {
@@ -15,8 +12,6 @@ function Books() {
         publisher: "",
         publicationDate: ""
     })
-
-    const [showBooks, setShowBooks] = useState({})
 
     const handleInput = (e) => {
         let name = e.target.name
@@ -55,8 +50,6 @@ function Books() {
             console.log("book", error);
         }
     }
-
-
 
 
     return ( 
@@ -155,23 +148,15 @@ function Books() {
             </div>
             <button 
                 type="submit" 
-                onClick={() => window.alert("Data added successfully")}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Add Book </button>
         </form>
-        <Link to='/show-books'>
-            <button 
-                type="submit" 
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Show all Books </button>
+        <Link to='/books/details'>
+            <button type="submit" 
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Show Books</button>
         </Link>
-
-        <br/>
-        <br/>
-        <br/>
-        {/* <ShowBooks/> */}
-        
         </>
      );
     }
     
     
-    export default Books;
+export default Books;
